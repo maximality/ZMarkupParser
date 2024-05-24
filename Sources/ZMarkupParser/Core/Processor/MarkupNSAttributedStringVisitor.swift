@@ -83,7 +83,7 @@ struct MarkupNSAttributedStringVisitor: MarkupVisitor {
     func visit(_ markup: ListMarkup) -> Result {
         let attributedString = collectAttributedString(markup)
         attributedString.append(makeBreakLine(in: markup))
-        attributedString.insert(makeBreakLine(in: markup), at: 0)
+//        attributedString.insert(makeBreakLine(in: markup, reduceable: false), at: 0)
         return attributedString
     }
     

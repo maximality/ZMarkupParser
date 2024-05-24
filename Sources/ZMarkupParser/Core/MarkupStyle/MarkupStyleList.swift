@@ -58,7 +58,11 @@ public struct MarkupStyleList {
         func marker(forItemNumber: Int, startingItemNumber: Int, format: String) -> String {
             let textList = NSTextList(markerFormat: self.markerFormat(), options: 0)
             textList.startingItemNumber = startingItemNumber
-            return String(format: format, textList.marker(forItemNumber: forItemNumber))
+            if self.markerFormat() == .disc {
+                return "\u{2022} "
+            } else {
+                return String(format: format, textList.marker(forItemNumber: forItemNumber))
+            }
         }
         
         private func markerFormat() -> NSTextList.MarkerFormat {

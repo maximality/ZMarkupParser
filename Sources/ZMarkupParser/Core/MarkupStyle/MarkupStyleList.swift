@@ -59,7 +59,7 @@ public struct MarkupStyleList {
             let textList = NSTextList(markerFormat: self.markerFormat(), options: 0)
             textList.startingItemNumber = startingItemNumber
             if self.markerFormat() == .disc {
-                return "\u{2022} "
+                return "\u{2002}\u{23FA}\u{0000FE0E}\u{2002}"
             } else {
                 return String(format: format, textList.marker(forItemNumber: forItemNumber))
             }

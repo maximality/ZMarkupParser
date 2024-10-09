@@ -19,7 +19,9 @@ struct MarkupNSAttributedStringVisitor: MarkupVisitor {
     }
     
     func visit(_ markup: BreakLineMarkup) -> Result {
-        return makeBreakLine(in: markup)
+        let attributedString = collectAttributedString(markup)
+        attributedString.append(makeBreakLine(in: markup, reduceable: false))
+        return attributedString
     }
     
     func visit(_ markup: RawStringMarkup) -> Result {
